@@ -6,7 +6,7 @@ const { Consumer } = require('sqs-consumer');
 // Configure the region
 AWS.config.update({region: 'us-east-1'});
 
-const queueUrl = "https://sqs.us-east-1.amazonaws.com/399555142064/nodeshop.fifo";
+const queueUrl = process.env.QUEUE_URL;
 
 
 let transport = nodemailer.createTransport({

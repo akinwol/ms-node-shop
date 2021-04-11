@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const AWS = require('aws-sdk');
@@ -5,7 +6,7 @@ const AWS = require('aws-sdk');
 AWS.config.update({region: 'us-east-1'});
 
 const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
-const queueUrl = "https://sqs.us-east-1.amazonaws.com/399555142064/nodeshop.fifo";
+const queueUrl =  process.env.QUEUE_URL;
 
 const port = process.argv.slice(2)[0];
 const app = express();
